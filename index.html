@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<meta name="description" content="Compress and resize images online with ready-made dimensions and file size presets.">
+<title>Image Compressor - Compress & Resize Images Online</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+<a class="logo" href="/">Image<span>Compressor</span></a>
+<span class="privacy">🔒 Private & Secure</span>
+</header>
+
+<main class="container">
+<section class="hero">
+<p class="eyebrow">FREE ONLINE IMAGE TOOL</p>
+<h1>Compress your images<br><span>without the hassle.</span></h1>
+<p>Resize images, reduce file size and optimize quality in one place.</p>
+</section>
+
+<section class="upload-card" id="dropZone">
+<div class="upload-icon">↑</div>
+<h2>Drop your image here</h2>
+<p>or select a file from your device</p>
+<button class="choose-btn" id="chooseBtn" type="button">Choose an Image</button>
+<input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp" hidden>
+<small>JPG, PNG and WebP supported</small>
+</section>
+
+<section class="editor" id="editor" hidden>
+<div class="section-heading">
+<h2>Image comparison</h2>
+<button class="text-btn" id="changeImageBtn" type="button">Choose another image</button>
+</div>
+
+<div class="comparison">
+<div class="compare-stage">
+<img id="originalPreview" alt="Original image">
+<div class="compressed-layer" id="compressedLayer">
+<img id="compressedPreview" alt="Compressed image">
+</div>
+<div class="compare-line" id="compareLine">↔</div>
+</div>
+<input type="range" id="compareSlider" min="0" max="100" value="50">
+<div class="compare-caption"><span>Original</span><span>Drag to compare</span><span>Compressed</span></div>
+</div>
+
+<div class="stats-grid">
+<div class="stat-box"><span>Original size</span><strong id="originalSize">—</strong><small id="originalDimensions">—</small></div>
+<div class="stat-box"><span>New file size</span><strong id="compressedSize">—</strong><small id="compressedDimensions">—</small></div>
+<div class="stat-box"><span>Size reduction</span><strong id="savingPercent">—</strong><small id="savingText">Not compressed yet</small></div>
+</div>
+
+<section class="settings-card">
+<p class="eyebrow">RESIZE IMAGE</p>
+<h2>Choose image dimensions</h2>
+
+<div class="setting">
+<label for="category">Category</label>
+<select id="category">
+<option value="website">Website</option>
+<option value="social">Social Media</option>
+<option value="youtube">YouTube</option>
+<option value="profile">Profile</option>
+<option value="document">Forms & Documents</option>
+<option value="custom">Custom dimensions</option>
+</select>
+</div>
+
+<div class="setting">
+<label for="preset">Ready-made dimensions</label>
+<select id="preset"></select>
+</div>
+
+<div class="settings-grid">
+<div class="setting"><label for="widthInput">Width (px)</label><input type="number" id="widthInput" min="1" max="12000"></div>
+<div class="setting"><label for="heightInput">Height (px)</label><input type="number" id="heightInput" min="1" max="12000"></div>
+</div>
+
+<label class="checkbox-row"><input type="checkbox" id="keepRatio" checked> Keep original aspect ratio</label>
+
+<div class="divider"></div>
+<p class="eyebrow">FILE SIZE</p>
+<h2>Choose maximum file size</h2>
+
+<div class="setting">
+<label for="targetSize">Target file size</label>
+<select id="targetSize">
+<option value="50">50 KB</option>
+<option value="100">100 KB</option>
+<option value="200" selected>200 KB</option>
+<option value="500">500 KB</option>
+<option value="1024">1 MB</option>
+<option value="2048">2 MB</option>
+<option value="custom">Custom size</option>
+<option value="none">No size limit</option>
+</select>
+</div>
+
+<div class="setting" id="customSizeWrap" hidden>
+<label for="customSize">Custom maximum size (KB)</label>
+<input type="number" id="customSize" min="1" placeholder="Enter KB">
+</div>
+
+<div class="divider"></div>
+<p class="eyebrow">OUTPUT SETTINGS</p>
+<h2>Quality & format</h2>
+
+<div class="setting">
+<div class="setting-title"><label for="quality">Image Quality</label><strong id="qualityValue">80%</strong></div>
+<input type="range" id="quality" min="10" max="100" value="80">
+<div class="range-labels"><span>Smaller file</span><span>Better quality</span></div>
+</div>
+
+<div class="setting">
+<label for="format">Output format</label>
+<select id="format">
+<option value="image/webp">WebP</option>
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG</option>
+</select>
+</div>
+
+<button class="compress-btn" id="compressBtn" type="button">Compress Image</button>
+<a class="download-btn" id="downloadBtn" hidden>↓ Download Compressed Image</a>
+<p class="result-message" id="resultMessage" aria-live="polite">Choose settings and compress your image.</p>
+</section>
+</section>
+
+<section class="info-section">
+<p class="eyebrow">SIMPLE PROCESS</p>
+<h2>How it works</h2>
+<div class="steps">
+<article><span>01</span><h3>Upload</h3><p>Select an image from your device.</p></article>
+<article><span>02</span><h3>Choose size</h3><p>Select dimensions and target file size.</p></article>
+<article><span>03</span><h3>Download</h3><p>Compare and download your optimized image.</p></article>
+</div>
+</section>
+
+<section class="privacy-note">
+<h2>Your privacy matters</h2>
+<p>Your images are processed directly in your browser. They are not uploaded to our server.</p>
+</section>
+</main>
+
+<footer>© 2026 Image Compressor. All rights reserved.</footer>
+<script src="app.js"></script>
+</body>
+</html>

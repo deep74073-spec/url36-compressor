@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://compressor.url36.com/sitemap.xml

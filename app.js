@@ -5,15 +5,15 @@ const editor = $("editor");
 const dropZone = $("dropZone");
 const originalPreview = $("originalPreview");
 const compressedPreview = $("compressedPreview");
-const compareStage = $("compareStage");
+const compareStage = document.querySelector(".compare-stage");
 const compressedLayer = $("compressedLayer");
 const compareSlider = $("compareSlider");
 const compareLine = $("compareLine");
 
 const category = $("category");
 const preset = $("preset");
-const widthInput = $("width");
-const heightInput = $("height");
+const widthInput = $("widthInput");
+const heightInput = $("heightInput");
 const keepRatio = $("keepRatio");
 const targetSize = $("targetSize");
 const customSize = $("customSize");
@@ -180,7 +180,7 @@ function loadFile(file) {
 
     editor.hidden = false;
     $("compressedSize").textContent = "—";
-    $("savedPercent").textContent = "—";
+    $("savingPercent").textContent = "—";
     $("compressedDimensions").textContent = "—";
     compressedPreview.removeAttribute("src");
     updateCompare(50);
@@ -197,7 +197,9 @@ function loadFile(file) {
 }
 
 imageInput.addEventListener("change", event => {
-  loadFile(event.target.files[0]);
+  if (event.target.files && event.target.files[0]) {
+    loadFile(event.target.files[0]);
+  }
 });
 
 dropZone.addEventListener("dragover", event => {
@@ -300,7 +302,7 @@ async function compressImage() {
 
     const saved = Math.max(0,(1 - blob.size / originalFile.size) * 100);
     $("compressedSize").textContent = formatSize(blob.size);
-    $("savedPercent").textContent = saved.toFixed(1) + "%";
+    $("savingPercent").textContent = saved.toFixed(1) + "%";
     $("compressedDimensions").textContent = width + " × " + height;
 
     downloadBtn.href = compressedUrl;
